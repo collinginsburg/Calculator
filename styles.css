@@ -1,0 +1,102 @@
+.calcContainer{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    background-color: red;
+    top: 20%;
+    height: 400px;
+    width: 300px;
+    border: black solid 40px;
+}
+
+.grid{
+    display: grid;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    "screen screen screen screen"
+    ". . . ."
+    "clear divide multiply minus"
+    "seven eight nine plus"
+    "four five six plus"
+    "one two three equals"
+    "zero zero period equals";
+}
+.button{
+    font-size: 40px;
+}
+
+.screen{
+    grid-area: screen;
+    background-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 0 13px #333;
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: monospace;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    /* height: 90px;
+    line-height: 90px; */
+    text-align: center;
+    overflow-x:auto;
+    overflow-y: auto;
+}
+.button.seven{
+    grid-area: seven;
+}
+.button.eight{
+    grid-area: eight;
+}
+.button.nine{
+    grid-area: nine;
+}
+.button.four{
+    grid-area: four;
+}
+.button.five{
+    grid-area: five;
+}
+.button.six{
+    grid-area: six;
+}
+.button.clear{
+    grid-area: clear;
+    font-size: 20px;
+}
+.button.divide{
+    grid-area: divide;
+}
+.button.multiply{
+    grid-area: multiply;
+    display: grid;
+    align-content: flex-end;
+}
+.button.minus{
+    grid-area: minus;
+}
+.button.plus{
+    grid-area: plus;
+}
+.button.one{
+    grid-area: one;
+}
+.button.two{
+    grid-area: two;
+}
+.button.three{
+    grid-area: three;
+}
+.button.zero{
+    grid-area: zero;
+}
+.button.period{
+    grid-area: period;
+}
+.button.equals{
+    grid-area: equals;
+}
+
+
