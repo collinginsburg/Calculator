@@ -1,0 +1,1 @@
+Here's my calculator for odin! not exacctly sure on the design. I remember a big clear calc I used growing up, but also those little blue and red TI we used in grade school could be funny to make.
