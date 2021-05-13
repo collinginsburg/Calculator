@@ -130,15 +130,40 @@ function operate(){
 
     }
     if(subtractionOn === true){
-        return subtract(firstNumber,secondNumber);
+        secondNumber = Number(SCREEN.textContent);
+        result = subtract(firstNumber,secondNumber);
+        SCREEN.textContent = `= ${result}`;
+        firstNumber = result;
+        firstNumberOn = "yes"
+        secondNumberOn = "no"
+        subtractionOn = false;
+        removeNumberButtonFunctionality();
+        addAfterOperateButtonFunctionality();
+        
     }
+    
     if(multiplicationOn === true){
-        return multiply(firstNumber,secondNumber);
+        secondNumber = Number(SCREEN.textContent);
+        result = multiply(firstNumber,secondNumber);
+        SCREEN.textContent = `= ${result}`;
+        firstNumber = result;
+        firstNumberOn = "yes"
+        secondNumberOn = "no"
+        multiplicationOn = false;
+        removeNumberButtonFunctionality();
+        addAfterOperateButtonFunctionality();
     }
     if(divisionOn === true){
-        return divide(firstNumber,secondNumber);
+        secondNumber = Number(SCREEN.textContent);
+        result = divide(firstNumber,secondNumber);
+        SCREEN.textContent = `= ${result}`;
+        firstNumber = result;
+        firstNumberOn = "yes"
+        secondNumberOn = "no"
+        divisionOn = false;
+        removeNumberButtonFunctionality();
+        addAfterOperateButtonFunctionality();
     }
-    firstNumberOn = true;
 
 }
 
@@ -252,8 +277,70 @@ function displayPeriodAfterOperate(){
 
 
 const DIVIDE = document.querySelector('.btn.divide');
+DIVIDE.addEventListener('click', divisionOperation);
+function divisionOperation(){
+    if(secondNumberOn === "no"){ //for continuing operations
+        prepCalcForNextOperation();
+        removeAfterOperateButtonFunctionality();
+        addNumberButtonFunctionality();
+        setDivisionOn();
+    }else{ // for first operations
+        firstNumber = Number(SCREEN.textContent);
+        firstNumberOn = "yes";
+        SCREEN.textContent = '';
+        setDivisionOn();
+    }
+}
+function setDivisionOn(){
+    additionOn = false;
+    subtractionOn = false;
+    multiplicationOn = false;
+    divisionOn = true;
+}
 const MULTIPLY= document.querySelector('.btn.multiply');
+MULTIPLY.addEventListener('click', multiplicationOperation);
+function multiplicationOperation(){
+    if(secondNumberOn === "no"){ //for continuing operations
+        prepCalcForNextOperation();
+        removeAfterOperateButtonFunctionality();
+        addNumberButtonFunctionality();
+        setMultiplicationOn();
+    }else{ // for first operations
+        firstNumber = Number(SCREEN.textContent);
+        firstNumberOn = "yes";
+        SCREEN.textContent = '';
+        setMultiplicationOn();
+    }
+}
+function setMultiplicationOn(){
+    additionOn = false;
+    subtractionOn = false;
+    multiplicationOn = true;
+    divisionOn = false;
+}
+
+
 const MINUS = document.querySelector('.btn.minus');
+MINUS.addEventListener('click', subtractionOperation);
+function subtractionOperation(){
+    if(secondNumberOn === "no"){ //for continuing operations
+        prepCalcForNextOperation();
+        removeAfterOperateButtonFunctionality();
+        addNumberButtonFunctionality();
+        setSubtractionOn();
+    }else{ // for first operations
+        firstNumber = Number(SCREEN.textContent);
+        firstNumberOn = "yes";
+        SCREEN.textContent = '';
+        setSubtractionOn();
+    }
+}
+function setSubtractionOn(){
+    additionOn = false;
+    subtractionOn = true;
+    multiplicationOn = false;
+    divisionOn = false;
+}
 
 
 
