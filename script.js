@@ -1,29 +1,9 @@
-// ******************calc FUNCTIONS**************************************
 
-function subtract (firstNumber,secondNumber){
-    return firstNumber-secondNumber;
-}
-function add(firstNumber, secondNumber) {
-    return firstNumber+secondNumber;
-}
-function multiply(firstNumber,secondNumber){
-      return firstNumber*secondNumber;
-}
-function divide(firstNumber, secondNumber) {
-    return firstNumber/secondNumber;
-}
 
-// ******************button FUNCTIONS**************************************
+// ******************screen FUNCTIONS**************************************
 const SCREEN =  document.querySelector('.screen');
-let displayvalue = SCREEN.textContent;
 
-function updateDisplay(){
-    displayvalue = SCREEN.textContent;
-};
-
-
-
-
+// ******************number button display FUNCTIONS**************************************
 
 const ZERO = document.querySelector('.btn.zero');
 ZERO.addEventListener('click', displayZero);
@@ -84,19 +64,24 @@ function displayNine(){
 }
 
 
-
+// ******************clear button FUNCTION**************************************
 const CLEAR = document.querySelector('.btn.clear');
 CLEAR.addEventListener('click', clearDisplayReset);
 function clearDisplayReset(){
-    SCREEN.textContent = '';
-    firstNumberOn = "n/a";
-    secondNumberOn = "n/a";
-    additionOn = false;
-    subractionOn = false;
-    multiplicationOn = false;
-    divisionOn = false;
-    addNumberButtonFunctionality();
-    removeAfterOperateButtonFunctionality();
+        if (SCREEN.textContent = "= Nice Try"){
+            addAllButtonFunctionExceptClear();
+        }else{
+        addNumberButtonFunctionality();
+        }
+        SCREEN.textContent = '';
+        firstNumberOn = "n/a";
+        secondNumberOn = "n/a";
+        additionOn = false;
+        subractionOn = false;
+        multiplicationOn = false;
+        divisionOn = false;
+        removeAfterOperateButtonFunctionality();
+
 };
 function prepCalcForNextOperation(){
     firstNumber = result;
@@ -105,6 +90,8 @@ function prepCalcForNextOperation(){
 }
 
 // ******************operator button FUNCTIONS**************************************
+
+// initial values to run calc functions with
 let additionOn = false;
 let subractionOn = false;
 let multiplicationOn = false;
@@ -115,8 +102,9 @@ let firstNumberOn = "n/a";
 let secondNumberOn = "n/a";
 let result;
 
+// main calculator functions for each math operation: sets number pairs, displays results, 
+// changes # button functionality depending on whether you want new oepration or to modified prev result
 function operate(){
-
     if(additionOn === true){
         secondNumber = Number(SCREEN.textContent);
         result = add(firstNumber,secondNumber);
@@ -127,7 +115,6 @@ function operate(){
         additionOn = false;
         removeNumberButtonFunctionality();
         addAfterOperateButtonFunctionality();
-
     }
     if(subtractionOn === true){
         secondNumber = Number(SCREEN.textContent);
@@ -139,9 +126,7 @@ function operate(){
         subtractionOn = false;
         removeNumberButtonFunctionality();
         addAfterOperateButtonFunctionality();
-        
-    }
-    
+    } 
     if(multiplicationOn === true){
         secondNumber = Number(SCREEN.textContent);
         result = multiply(firstNumber,secondNumber);
@@ -161,10 +146,53 @@ function operate(){
         firstNumberOn = "yes"
         secondNumberOn = "no"
         divisionOn = false;
-        removeNumberButtonFunctionality();
-        addAfterOperateButtonFunctionality();
-    }
 
+        if (SCREEN.textContent === "= Nice Try"){
+            removeAllButtonFunctionExceptClear();
+        }else{
+            removeNumberButtonFunctionality();
+            addAfterOperateButtonFunctionality();
+        }
+    }
+}
+
+// ******************ADD/REMOVE different number button functionality**************************************
+function removeAllButtonFunctionExceptClear(){
+    NINE.removeEventListener('click', displayNine);
+    EIGHT.removeEventListener('click', displayEight);
+    SEVEN.removeEventListener('click', displaySeven);
+    SIX.removeEventListener('click', displaySix);
+    FIVE.removeEventListener('click', displayFive);
+    FOUR.removeEventListener('click', displayFour);
+    THREE.removeEventListener('click', displayThree);
+    TWO.removeEventListener('click', displayTwo);
+    ONE.removeEventListener('click', displayOne);
+    ZERO.removeEventListener('click', displayZero);
+    PERIOD.removeEventListener('click', displayPeriod);
+    EQUALS.removeEventListener('click', operate);
+    PLUS.removeEventListener('click', additionOperation);
+    MINUS.removeEventListener('click', subtractionOperation);
+    MULTIPLY.removeEventListener('click', multiplicationOperation);
+    DIVIDE.removeEventListener('click', divisionOperation);
+}
+
+function addAllButtonFunctionExceptClear(){
+    NINE.addEventListener('click', displayNine);
+    EIGHT.addEventListener('click', displayEight);
+    SEVEN.addEventListener('click', displaySeven);
+    SIX.addEventListener('click', displaySix);
+    FIVE.addEventListener('click', displayFive);
+    FOUR.addEventListener('click', displayFour);
+    THREE.addEventListener('click', displayThree);
+    TWO.addEventListener('click', displayTwo);
+    ONE.addEventListener('click', displayOne);
+    ZERO.addEventListener('click', displayZero);
+    PERIOD.addEventListener('click', displayPeriod);
+    EQUALS.addEventListener('click', operate);
+    PLUS.addEventListener('click', additionOperation);
+    MINUS.addEventListener('click', subtractionOperation);
+    MULTIPLY.addEventListener('click', multiplicationOperation);
+    DIVIDE.addEventListener('click', divisionOperation);
 }
 
 function removeNumberButtonFunctionality(){
@@ -275,7 +303,9 @@ function displayPeriodAfterOperate(){
     removeAfterOperateButtonFunctionality();
 }
 
+// ******************math operator button FUNCTIONS**************************************
 
+// DIVISION
 const DIVIDE = document.querySelector('.btn.divide');
 DIVIDE.addEventListener('click', divisionOperation);
 function divisionOperation(){
@@ -297,6 +327,8 @@ function setDivisionOn(){
     multiplicationOn = false;
     divisionOn = true;
 }
+
+// MULTIPLICATION
 const MULTIPLY= document.querySelector('.btn.multiply');
 MULTIPLY.addEventListener('click', multiplicationOperation);
 function multiplicationOperation(){
@@ -319,7 +351,7 @@ function setMultiplicationOn(){
     divisionOn = false;
 }
 
-
+// SUBTRACTION
 const MINUS = document.querySelector('.btn.minus');
 MINUS.addEventListener('click', subtractionOperation);
 function subtractionOperation(){
@@ -342,8 +374,7 @@ function setSubtractionOn(){
     divisionOn = false;
 }
 
-
-
+// ADDITION
 const PLUS = document.querySelector('.btn.plus');
 PLUS.addEventListener('click', additionOperation);
 function additionOperation(){
@@ -365,5 +396,31 @@ function setAdditionOn(){
     multiplicationOn = false;
     divisionOn = false;
 }
+
+// EQUALS
 const EQUALS = document.querySelector('.btn.equals');
 EQUALS.addEventListener('click', operate);
+
+
+// ******************MATH FUNCTIONS**************************************
+
+function subtract (firstNumber,secondNumber){
+    let rounded = (firstNumber-secondNumber).toFixed(4);
+    return Number(rounded);
+}
+function add(firstNumber, secondNumber) {
+    let rounded = (firstNumber+secondNumber).toFixed(4);
+    return Number(rounded);
+}
+function multiply(firstNumber,secondNumber){
+    let rounded = (firstNumber*secondNumber).toFixed(4);
+      return Number(rounded);
+}
+function divide(firstNumber, secondNumber) {
+     if (secondNumber === 0 || firstNumber === 0) {
+        return "Nice Try";
+     }else{
+        let rounded = (firstNumber/secondNumber).toFixed(4);
+        return Number(rounded);
+     }
+}
