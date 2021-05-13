@@ -45,7 +45,7 @@
     line-height: 90px; */
     text-align: right;
     overflow-x:auto;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 .margin{
     grid-area: margin;
