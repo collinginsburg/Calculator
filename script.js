@@ -430,7 +430,7 @@ function multiply(firstNumber,secondNumber){
       return Number(rounded);
 }
 function divide(firstNumber, secondNumber) {
-     if (secondNumber === 0 || firstNumber === 0) {
+     if (secondNumber === 0) {
         return "Nice Try";
      }else{
         let rounded = (firstNumber/secondNumber).toFixed(4);
