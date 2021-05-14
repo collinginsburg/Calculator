@@ -2,25 +2,27 @@
     display: block;
     position: relative;
     margin: 0 auto;
-    background-color: red;
+    background-color: rgb(17, 30, 145);
     top: 20%;
-    height: 350px;
-    width: 250px;
-    border: black solid 40px;
+    height: 450px;
+    width: 280px;
+    border: rgb(17, 30, 145) solid 13px;
     border-radius: 2%;
     /* box-shadow: 10px 10px 60px 4px rgba(0, 0, 0, 0.568); */
 }
 
 .grid{
     display: grid;
-    background-color: black;
+    background-color: rgb(17, 30, 145);
     height: 100%;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 30px repeat(5, 1fr);
+    grid-template-rows: 1fr 50px 50px 20px repeat(5, 1fr);
     grid-template-areas: 
     "screen screen screen screen"
-    "margin margin margin margin"
+    "ti ti model model"
+    "panel panel margin margin"
+    ". . margin margin"    
     "clear divide multiply minus"
     "seven eight nine plus"
     "four five six plus"
@@ -28,13 +30,22 @@
     "zero zero period equals";
 }
 .btn{
-    font-size: 40px;
+    font-size: 20px;
+    font-family: monospace;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 7%;
+    border:none;
+    background-color: rgb(212, 205, 205);
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
+
 
 .screen{
     grid-area: screen;
     background-color: rgb(218, 208, 208);
-    box-shadow: 0 0 0 11px #333;
+    box-shadow: 0 0 0 3px #333;
     border-radius: 10px;
     font-size: 30px;
     font-family: monospace;
@@ -49,7 +60,49 @@
 }
 .margin{
     grid-area: margin;
+}
 
+.panel{
+    grid-area: panel;
+    background-color: rgb(30, 37, 29);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    flex-direction: row;
+    /* margin-top: 50px; */
+    /* margin-bottom: 15px; */
+}
+.subpanel1{
+    /* height: 100%; */
+    /* width: 100%; */
+    border: black solid 1px;
+}
+.subpanel2{
+    /* height: 100%; */
+    /* width: 100%; */
+    border: black solid 1px;
+}
+.subpanel3{
+    /* height: 100%; */
+    /* width: 100%; */
+    border: black solid 1px;
+}
+.subpanel4{
+    border: black solid 1px;
+}
+.btn.number{
+    color: rgb(17, 30, 145);
+}
+.btn.operations{
+    background-color: rgb(204, 6, 6);
+    color: white;
+}
+.btn.number:hover{
+    background-color: black;
+    color: white;
+}
+.btn.operations:hover{
+    background-color: rgb(255, 203, 31);
+    color: black;
 }
 .btn.seven{
     grid-area: seven;
@@ -71,31 +124,29 @@
 }
 .btn.clear{
     grid-area: clear;
-    font-size: 20px;
+    font-size: 10px;
 }
 .btn.divide{
     grid-area: divide;
+    font-weight: 900;
 }
 .btn.multiply{
-    /* grid-area: multiply;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
-    height: 100%;
-    display: grid;
-    /* vertical-align: middle; */
-
-}
-.multiplypara{
-    margin: auto;
-    /* vertical-align: middle; */
+    grid-area: multiply;
+    font-weight: 900;
 }
 .btn.minus{
     grid-area: minus;
     display: grid;
+    align-content: center;
+    font-weight: 900;
+}
+.btn.equals{
+    grid-area: equals;
+    font-weight: 900;
 }
 .btn.plus{
     grid-area: plus;
+    font-weight: 900;
 }
 .btn.one{
     grid-area: one;
@@ -112,10 +163,8 @@
 .btn.period{
     grid-area: period;
     display: grid;
-    align-content: flex-end;
+    align-content: center;
 }
-.btn.equals{
-    grid-area: equals;
-}
+
 
 
