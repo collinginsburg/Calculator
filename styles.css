@@ -35,7 +35,7 @@ html, body{
     background-color: rgb(17, 30, 145);
     height: 100%;
     width: 100%;
-    grid-template-columns: 10px 1fr 10px;
+    grid-template-columns: 10px 280px 10px;
     grid-template-rows: 18px 66px 114px 8px 272px 10px;
     grid-template-areas: 
     ". . ."
