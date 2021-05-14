@@ -1,14 +1,30 @@
+@font-face{
+    font-family: 'euro';
+    src: url(eurostile-font/eurostile\ font/EuroStyle\ Normal.ttf);
+}
+@font-face{
+    font-family: 'typist';
+    src: url(Typist/TYPIST.TTF);
+}
+@font-face{
+    font-family: 'calculator';
+    src: url(calculator/Calculator.ttf);
+}
+
+
+
+
 .calcContainer{
     display: block;
     position: relative;
     margin: 0 auto;
     background-color: rgb(17, 30, 145);
-    top: 20%;
-    height: 450px;
-    width: 280px;
-    border: rgb(17, 30, 145) solid 13px;
-    border-radius: 2%;
-    /* box-shadow: 10px 10px 60px 4px rgba(0, 0, 0, 0.568); */
+    top: 13%;
+    height: 570px;
+    width: 330px;
+    /* border: rgb(17, 30, 145) solid 1px; */
+    border-radius: 1% 1% 3% 3%;
+    box-shadow: 0px 0px 0px 6px rgb(17, 30, 145);
 }
 
 .grid{
@@ -16,41 +32,80 @@
     background-color: rgb(17, 30, 145);
     height: 100%;
     width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 50px 50px 20px repeat(5, 1fr);
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows: .06fr .25fr .0005fr .06fr 1.03fr .13fr;
     grid-template-areas: 
-    "screen screen screen screen"
-    "ti ti model model"
-    "panel panel margin margin"
-    ". . margin margin"    
-    "clear divide multiply minus"
-    "seven eight nine plus"
-    "four five six plus"
-    "one two three equals"
-    "zero zero period equals";
+    ". . ."
+    ". screenarea ."
+    "msl midsection msr"
+    ". . ."
+    ". buttongrid ."
+    ". . ."; 
+
+}
+.buttongrid{
+grid-area: buttongrid;
+display: grid;
+grid-template-rows: repeat(6, 1fr);
+grid-template-columns: repeat(3, 1fr) 10px 1fr;
+row-gap: 12px;
+column-gap: 10px;
+border: rgba(0, 0, 0, 0.205) 4px solid;
+padding: 10px;
+border-radius: 2%;
+grid-template-areas:
+"filler1 filler2 filler3 margin divide" 
+"filler4 filler5 filler6 margin multiply"
+"seven eight nine margin minus"
+"four five six margin plus"
+"one two three margin equals"
+"clear zero period margin equals";
 }
 .btn{
     font-size: 20px;
-    font-family: monospace;
+    font-weight: bolder;
+    font-family: euro, monospace;
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 7%;
     border:none;
+    box-shadow: 1px 1px 4px 2px rgb(0, 0, 0);
     background-color: rgb(212, 205, 205);
-    margin-left: 3px;
-    margin-bottom: 3px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    padding-top: 5px;
 }
 
+.screenarea{
+    grid-area: screenarea;
+    display: grid;
+    grid-template-columns: 1fr 13fr 1fr;
+    grid-template-areas: ". screen .";
+}
+.screenborder{
+    display: flex;
+    grid-area: screen;
+    background-color: #333;
+    padding-right:10px;
+    padding-left:10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: rgba(0, 0, 0, 0.582) 2px solid;
 
+}
 .screen{
     grid-area: screen;
+    width: 100%;
     background-color: rgb(218, 208, 208);
-    box-shadow: 0 0 0 3px #333;
-    border-radius: 10px;
-    font-size: 30px;
-    font-family: monospace;
-    padding-top: 11px;
-    padding-bottom: 11px;
+    /* box-shadow: 0 1px 3px #333; */
+    border: black 2px solid;
+    border-radius: 8px;
+    font-size: 48px;
+    font-weight: bolder;
+    font-family: calculator, monospace;
+    /* padding-top: 11px; */
+    /* padding-bottom: 11px; */
     padding-right: 8px;
     /* height: 90px;
     line-height: 90px; */
@@ -61,15 +116,50 @@
 .margin{
     grid-area: margin;
 }
-
+.msl{
+    grid-area: msl;
+    border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
+}
+.msr{
+    grid-area: msr;
+    border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
+}
+.midsection{
+    grid-area: midsection;
+    padding-bottom: 16px;
+    border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
+    display: grid;
+    grid-template-rows: 3fr 2.8fr;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-areas: "ti ti ti ti ti ti ti ti ti model model model model model model model"
+    "panel panel panel panel panel panel panel panel . . . . . . . ."
+}
+.ti{
+    color: white;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    grid-area: ti;
+    font-size: 19px;
+    letter-spacing: -2px;
+    font-weight: 400;
+    align-self: center;
+}
+.model{
+    grid-area: model;
+    font-size: 39px;
+    font-family: typist, monospace;
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    align-items:flex-end;
+    padding-top: 20px;
+    justify-content: center;
+}
 .panel{
     grid-area: panel;
-    background-color: rgb(30, 37, 29);
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    flex-direction: row;
-    /* margin-top: 50px; */
-    /* margin-bottom: 15px; */
+    grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(25, 37, 23);
 }
 .subpanel1{
     /* height: 100%; */
@@ -104,6 +194,24 @@
     background-color: rgb(255, 203, 31);
     color: black;
 }
+.btn.filler1{
+    grid-area: filler1;
+}
+.btn.filler2{
+    grid-area: filler2;
+}
+.btn.filler3{
+    grid-area: filler3;
+}
+.btn.filler4{
+    grid-area: filler4;
+}
+.btn.filler5{
+    grid-area: filler5;
+}
+.btn.filler6{
+    grid-area: filler6;
+}
 .btn.seven{
     grid-area: seven;
 }
@@ -124,7 +232,9 @@
 }
 .btn.clear{
     grid-area: clear;
-    font-size: 10px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bolder;
 }
 .btn.divide{
     grid-area: divide;
@@ -162,8 +272,6 @@
 }
 .btn.period{
     grid-area: period;
-    display: grid;
-    align-content: center;
 }
 
 
