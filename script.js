@@ -15,6 +15,7 @@ const PERIOD = document.querySelector('.btn.period');
 PERIOD.addEventListener('click', displayPeriod);
 function displayPeriod(){
     SCREEN.textContent += '.';
+    disablePeriodButton();
 }
 
 const ONE = document.querySelector('.btn.one');
@@ -176,6 +177,13 @@ function removeAllButtonFunctionExceptClear(){
     DIVIDE.removeEventListener('click', divisionOperation);
 }
 
+function disablePeriodButton(){
+    PERIOD.removeEventListener('click', displayPeriod);
+}
+function enablePeriodButton(){
+    PERIOD.addEventListener('click', displayPeriod);
+}
+
 function addAllButtonFunctionExceptClear(){
     NINE.addEventListener('click', displayNine);
     EIGHT.addEventListener('click', displayEight);
@@ -300,6 +308,7 @@ function displayZeroAfterOperate(){
 function displayPeriodAfterOperate(){
     clearDisplayReset();
     SCREEN.textContent += '.';
+    disablePeriodButton();
     removeAfterOperateButtonFunctionality();
 }
 
@@ -318,6 +327,7 @@ function divisionOperation(){
         firstNumber = Number(SCREEN.textContent);
         firstNumberOn = "yes";
         SCREEN.textContent = '';
+        enablePeriodButton();
         setDivisionOn();
     }
 }
@@ -341,6 +351,7 @@ function multiplicationOperation(){
         firstNumber = Number(SCREEN.textContent);
         firstNumberOn = "yes";
         SCREEN.textContent = '';
+        enablePeriodButton();
         setMultiplicationOn();
     }
 }
@@ -364,6 +375,7 @@ function subtractionOperation(){
         firstNumber = Number(SCREEN.textContent);
         firstNumberOn = "yes";
         SCREEN.textContent = '';
+        enablePeriodButton();
         setSubtractionOn();
     }
 }
@@ -387,6 +399,7 @@ function additionOperation(){
         firstNumber = Number(SCREEN.textContent);
         firstNumberOn = "yes";
         SCREEN.textContent = '';
+        enablePeriodButton();
         setAdditionOn();
     }
 }
