@@ -15,16 +15,17 @@
 html, body{
     -webkit-appearance: none;
     -moz-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calcContainer{
-    display: block;
-    position: relative;
-    margin: 0 auto;
     background-color: rgb(17, 30, 145);
-    top: 100px;
-    height: 494px;
-    width: 280px;
+    /* height: 156vw;
+    width: 80vw; */
+    height: 474px;
+    width: 260px;
     /* border: rgb(17, 30, 145) solid 1px; */
     border-radius: 1% 1% 3% 3%;
     box-shadow: 0px 0px 0px 6px rgb(17, 30, 145);
@@ -35,12 +36,12 @@ html, body{
     background-color: rgb(17, 30, 145);
     height: 100%;
     width: 100%;
-    grid-template-columns: 10px 258px 10px;
-    grid-template-rows: 18px 66px 114px 8px 262px 20px;
+    grid-template-columns: 3% 94% 3%;
+    grid-template-rows:  3.6% 12% 22% 2% 52% 8.4%;
     grid-template-areas: 
     ". . ."
     ". screenarea ."
-    "msl midsection msr"
+    "midsection midsection midsection"
     ". . ."
     ". buttongrid ."
     ". . ."; 
@@ -49,12 +50,14 @@ html, body{
 .buttongrid{
 grid-area: buttongrid;
 display: grid;
-grid-template-rows: 28px 28px 28px 28px 28px 28px;
-grid-template-columns: 46px 46px 46px 10px 46px;
+/* grid-template-rows: 28px 28px 28px 28px 28px 28px; */
+grid-template-rows: repeat(6, 1fr);
+/* grid-template-columns: 46px 46px 46px 10px 46px; */
+grid-template-columns: repeat(3, 1fr) 10px 1fr;
 row-gap: 12px;
 column-gap: 10px;
 border: rgba(0, 0, 0, 0.205) 4px solid;
-padding: 10px;
+padding: 8px;
 border-radius: 2%;
 grid-template-areas:
 "filler1 filler2 filler3 margin divide" 
@@ -65,7 +68,7 @@ grid-template-areas:
 "clear zero period margin equals";
 }
 .btn{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bolder;
     font-family: euro, monospace;
     -webkit-appearance: none;
@@ -91,10 +94,10 @@ grid-template-areas:
     display: flex;
     grid-area: screen;
     background-color: #333;
-    padding-right:10px;
-    padding-left:10px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-right:6px;
+    padding-left:6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border: rgba(0, 0, 0, 0.582) 2px solid;
 
 }
@@ -102,17 +105,12 @@ grid-template-areas:
     grid-area: screen;
     width: 100%;
     background-color: rgb(218, 208, 208);
-    /* box-shadow: 0 1px 3px #333; */
     border: black 2px solid;
     border-radius: 8px;
     font-size: 42px;
     font-weight: bolder;
     font-family: calculator, monospace;
-    /* padding-top: 11px; */
-    /* padding-bottom: 11px; */
     padding-right: 8px;
-    /* height: 90px;
-    line-height: 90px; */
     text-align: right;
     overflow-x:auto;
     overflow-y: hidden;
@@ -133,31 +131,34 @@ grid-template-areas:
     padding-bottom: 16px;
     border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
     display: grid;
-    grid-template-rows: 3fr 2.8fr;
-    grid-template-columns: repeat(16,1fr);
-    grid-template-areas: "ti ti ti ti ti ti ti ti ti model model model model model model model"
-    "panel panel panel panel panel panel panel panel . . . . . . . ."
+    grid-template-rows: 3fr 2.4fr;
+    grid-template-columns: repeat(18,1fr);
+    grid-template-areas: ". ti ti ti ti ti ti ti ti ti ti model model model model model model model"
+    ". panel panel panel panel panel panel panel panel . . . . . . . . ."
 }
 .ti{
+    display: flex;
     color: white;
     font-family: sans-serif;
     text-transform: uppercase;
     grid-area: ti;
-    font-size: 15.5px;
-    letter-spacing: -2px;
+    width: auto;
+    font-size: 15px;
+    letter-spacing: -1.8px;
     font-weight: 400;
     align-self: center;
 }
 .model{
     grid-area: model;
-    font-size: 31px;
+    font-size: 30px;
     font-family: typist, monospace;
     font-weight: bolder;
     color: white;
     display: flex;
     align-items:flex-end;
-    padding-top: 20px;
-    justify-content: center;
+    /* text-align: right; */
+    justify-content: left;
+
 }
 .panel{
     grid-area: panel;
@@ -166,18 +167,12 @@ grid-template-areas:
     background-color: rgb(25, 37, 23);
 }
 .subpanel1{
-    /* height: 100%; */
-    /* width: 100%; */
     border: black solid 1px;
 }
 .subpanel2{
-    /* height: 100%; */
-    /* width: 100%; */
     border: black solid 1px;
 }
 .subpanel3{
-    /* height: 100%; */
-    /* width: 100%; */
     border: black solid 1px;
 }
 .subpanel4{
@@ -189,6 +184,7 @@ grid-template-areas:
 .btn.operations{
     background-color: rgb(204, 6, 6);
     color: white;
+    font-weight: 1000;
 }
 .btn.number:hover{
     background-color: black;
@@ -236,31 +232,26 @@ grid-template-areas:
 }
 .btn.clear{
     grid-area: clear;
-    font-size: 11px;
+    font-size: 10px;
     font-family: sans-serif;
     font-weight: bolder;
 }
 .btn.divide{
     grid-area: divide;
-    font-weight: 900;
+    content: "\00F7"
 }
 .btn.multiply{
     grid-area: multiply;
-    font-weight: 900;
 }
 .btn.minus{
     grid-area: minus;
-    display: grid;
-    align-content: center;
-    font-weight: 900;
+    /* font-stretch: ultra-expanded; */
 }
 .btn.equals{
     grid-area: equals;
-    font-weight: 900;
 }
 .btn.plus{
     grid-area: plus;
-    font-weight: 900;
 }
 .btn.one{
     grid-area: one;
