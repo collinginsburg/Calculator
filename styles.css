@@ -282,7 +282,7 @@ grid-template-areas:
         padding-top: 2px;
     }
     .grid{
-        grid-template-columns: 4% 90% 3%;
+        grid-template-columns: 1% 90% 3%;
     }
     .buttongrid{
         row-gap: 10px;
