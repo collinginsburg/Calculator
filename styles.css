@@ -280,7 +280,7 @@ grid-template-areas:
     align-items: flex-start;
 }
 
-/* @media (max-width: 500px){
+@media (max-width: 500px){
     .model{
         font-size: 24px;
         padding-bottom: 3px;
@@ -298,4 +298,4 @@ grid-template-areas:
         width: 280px;
     }
 
-} */
+}
