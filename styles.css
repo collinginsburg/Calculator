@@ -273,11 +273,11 @@ grid-template-areas:
 
 @media (max-width: 500px){
     .model{
-        font-size: 26px;
+        font-size: 24px;
         padding-bottom: 3px;
     }
     .ti{
-        font-size: 14px;
+        font-size: 12px;
     }
 
 }
