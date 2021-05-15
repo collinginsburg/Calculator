@@ -24,7 +24,7 @@ html, body{
     background-color: rgb(17, 30, 145);
     /* height: 156vw;
     width: 80vw; */
-    height: 474px;
+    height: 430px;
     width: 260px;
     /* border: rgb(17, 30, 145) solid 1px; */
     border-radius: 1% 1% 3% 3%;
@@ -37,7 +37,7 @@ html, body{
     height: 100%;
     width: 100%;
     grid-template-columns: 3% 94% 3%;
-    grid-template-rows:  3.6% 12% 22% 2% 52% 8.4%;
+    grid-template-rows:  3.6% 12% 20% 2% 57% 4%;
     grid-template-areas: 
     ". . ."
     ". screenarea ."
@@ -66,6 +66,8 @@ grid-template-areas:
 "four five six margin plus"
 "one two three margin equals"
 "clear zero period margin equals";
+-webkit-appearance: none;
+-moz-appearance: none;
 }
 .btn{
     font-size: 16px;
@@ -102,12 +104,11 @@ grid-template-areas:
 
 }
 .screen{
-    grid-area: screen;
     width: 100%;
     background-color: rgb(218, 208, 208);
     border: black 2px solid;
     border-radius: 8px;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: bolder;
     font-family: calculator, monospace;
     padding-right: 8px;
@@ -118,20 +119,13 @@ grid-template-areas:
 .margin{
     grid-area: margin;
 }
-.msl{
-    grid-area: msl;
-    border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
-}
-.msr{
-    grid-area: msr;
-    border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
-}
+
 .midsection{
     grid-area: midsection;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     border-bottom: rgba(0, 0, 0, 0.205) 4px solid;
     display: grid;
-    grid-template-rows: 3fr 2.4fr;
+    grid-template-rows: 2.2fr 1.8fr;
     grid-template-columns: repeat(18,1fr);
     grid-template-areas: ". ti ti ti ti ti ti ti ti ti ti model model model model model model model"
     ". panel panel panel panel panel panel panel panel . . . . . . . . ."
@@ -147,17 +141,20 @@ grid-template-areas:
     letter-spacing: -1.8px;
     font-weight: 400;
     align-self: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 .model{
     grid-area: model;
-    font-size: 30px;
+    font-size: 28px;
     font-family: typist, monospace;
     font-weight: bolder;
     color: white;
     display: flex;
     align-items:flex-end;
-    /* text-align: right; */
     justify-content: left;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 
 }
 .panel{
@@ -232,9 +229,11 @@ grid-template-areas:
 }
 .btn.clear{
     grid-area: clear;
-    font-size: 10px;
+    font-size: 12px;
     font-family: sans-serif;
     font-weight: bolder;
+    padding-left: 2px;
+    padding-top: 2px;
 }
 .btn.divide{
     grid-area: divide;
@@ -267,7 +266,18 @@ grid-template-areas:
 }
 .btn.period{
     grid-area: period;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
 }
 
+@media (max-width: 500px){
+    .model{
+        font-size: 26px;
+        padding-bottom: 3px;
+    }
+    .ti{
+        font-size: 14px;
+    }
 
-
+}
