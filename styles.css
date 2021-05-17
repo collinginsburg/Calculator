@@ -70,7 +70,7 @@ padding: 8px;
 border-radius: 2%;
 grid-template-areas:
 "filler1 filler2 filler3 margin divide" 
-"filler4 filler5 backspace margin multiply"
+"filler4 negative backspace margin multiply"
 "seven eight nine margin minus"
 "four five six margin plus"
 "one two three margin equals"
@@ -209,8 +209,8 @@ grid-template-areas:
 .btn.filler4{
     grid-area: filler4;
 }
-.btn.filler5{
-    grid-area: filler5;
+.btn.negative{
+    grid-area: negative;
 }
 .btn.backspace{
     grid-area: backspace;

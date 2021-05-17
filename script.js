@@ -10,6 +10,7 @@ ZERO.addEventListener('click', displayZero);
 function displayZero(){
         SCREEN.textContent += '0';
         backspaceOn = true;
+        makeNegativeOn = true;
 }
 
 const PERIOD = document.querySelector('.btn.period');
@@ -18,6 +19,7 @@ function displayPeriod(){
     SCREEN.textContent += '.';
     backspaceOn = true;
     disablePeriodButton();
+    makeNegativeOn = true;
 }
 
 const ONE = document.querySelector('.btn.one');
@@ -25,54 +27,63 @@ ONE.addEventListener('click', displayOne);
 function displayOne(){
     SCREEN.textContent += '1';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const TWO = document.querySelector('.btn.two');
 TWO.addEventListener('click', displayTwo);
 function displayTwo(){
     SCREEN.textContent += '2';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const THREE = document.querySelector('.btn.three');
 THREE.addEventListener('click', displayThree);
 function displayThree(){
     SCREEN.textContent += '3';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const FOUR = document.querySelector('.btn.four');
 FOUR.addEventListener('click', displayFour);
 function displayFour(){
     SCREEN.textContent += '4';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const FIVE = document.querySelector('.btn.five');
 FIVE.addEventListener('click', displayFive);
 function displayFive(){
     SCREEN.textContent += '5';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const SIX = document.querySelector('.btn.six');
 SIX.addEventListener('click', displaySix);
 function displaySix(){
     SCREEN.textContent += '6';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const SEVEN = document.querySelector('.btn.seven');
 SEVEN.addEventListener('click', displaySeven);
 function displaySeven(){
     SCREEN.textContent += '7';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const EIGHT = document.querySelector('.btn.eight');
 EIGHT.addEventListener('click', displayEight);
 function displayEight(){
     SCREEN.textContent += '8';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 const NINE = document.querySelector('.btn.nine');
 NINE.addEventListener('click', displayNine);
 function displayNine(){
     SCREEN.textContent += '9';
     backspaceOn = true;
+    makeNegativeOn = true;
 }
 
 
@@ -93,6 +104,7 @@ function clearDisplayReset(){
         multiplicationOn = false;
         divisionOn = false;
         backspaceOn = true;
+        makeNegativeOn = true;
         removeAfterOperateButtonFunctionality();
 
 };
@@ -119,6 +131,7 @@ let result;
 // changes # button functionality depending on whether you want new oepration or to modified prev result
 function operate(){
     backspaceOn = false;
+    makeNegativeOn = false;
 
     if(additionOn === true){
         secondNumber = Number(SCREEN.textContent);
@@ -473,14 +486,16 @@ function backspace(){
 }
 
 // negative function
-
+const NEGATIVE = document.querySelector('.btn.negative');
+NEGATIVE.addEventListener('click', makeNegative);
 let makeNegativeOn = true;
 function makeNegative(){
-    if(SCREEN.textContent.charAt(0) === '-'){
-        let edited = SCREEN.textContent.slice(1); 
-        SCREEN.textContent = edited;
-    }else{
-        SCREEN.textContent = '-' + SCREEN.textContent;
+    if (makeNegativeOn === true){
+        if(SCREEN.textContent.charAt(0) === '-'){
+            let edited = SCREEN.textContent.slice(1); 
+            SCREEN.textContent = edited;
+        }else{
+            SCREEN.textContent = '-' + SCREEN.textContent;
+        }
     }
-
 }
