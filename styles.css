@@ -70,13 +70,11 @@ padding: 8px;
 border-radius: 2%;
 grid-template-areas:
 "filler1 filler2 filler3 margin divide" 
-"filler4 filler5 filler6 margin multiply"
+"filler4 filler5 backspace margin multiply"
 "seven eight nine margin minus"
 "four five six margin plus"
 "one two three margin equals"
 "clear zero period margin equals";
--webkit-appearance: none;
--moz-appearance: none;
 }
 .btn{
     font-size: 16px;
@@ -90,7 +88,6 @@ grid-template-areas:
     background-color: rgb(212, 205, 205);
     display: flex;
     align-items: flex-start;
-    text-align: left;
     justify-content: start;
     padding-top: 5px;
 }
@@ -215,8 +212,13 @@ grid-template-areas:
 .btn.filler5{
     grid-area: filler5;
 }
-.btn.filler6{
-    grid-area: filler6;
+.btn.backspace{
+    grid-area: backspace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 0;
+    padding-top: 5px;
+    padding-left: 3px;
 }
 .btn.seven{
     grid-area: seven;
@@ -253,7 +255,6 @@ grid-template-areas:
 }
 .btn.minus{
     grid-area: minus;
-    /* font-stretch: ultra-expanded; */
 }
 .btn.equals{
     grid-area: equals;
@@ -281,8 +282,11 @@ grid-template-areas:
 }
 
 @media (max-width: 500px){
+    .grid{
+        width: 98%;
+    }
     .model{
-        font-size: 24px;
+        font-size: 26px;
         padding-bottom: 3px;
     }
     .ti{
@@ -293,9 +297,26 @@ grid-template-areas:
     .buttongrid{
         row-gap: 10px;
         column-gap: 8px;
+        /* padding: none; */
+        padding: 8px;
+        border: none;
+    }
+    .midsection{
+        border-bottom: none;;
     }
     .calcContainer{
-        width: 280px;
+        /* width: 230px; */
     }
+    .btn{
+        /* display: block; */
+        /* text-align: left; */
+    }
+    .btn.backspace{
+        /* width: 100%; */
+        font-size: 12px;
+        padding-top: 5px;
+        padding-left: 3px;
+    }
+    
 
 }

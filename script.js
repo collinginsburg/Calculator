@@ -9,12 +9,14 @@ const ZERO = document.querySelector('.btn.zero');
 ZERO.addEventListener('click', displayZero);
 function displayZero(){
         SCREEN.textContent += '0';
+        backspaceOn = true;
 }
 
 const PERIOD = document.querySelector('.btn.period');
 PERIOD.addEventListener('click', displayPeriod);
 function displayPeriod(){
     SCREEN.textContent += '.';
+    backspaceOn = true;
     disablePeriodButton();
 }
 
@@ -22,46 +24,55 @@ const ONE = document.querySelector('.btn.one');
 ONE.addEventListener('click', displayOne);
 function displayOne(){
     SCREEN.textContent += '1';
+    backspaceOn = true;
 }
 const TWO = document.querySelector('.btn.two');
 TWO.addEventListener('click', displayTwo);
 function displayTwo(){
     SCREEN.textContent += '2';
+    backspaceOn = true;
 }
 const THREE = document.querySelector('.btn.three');
 THREE.addEventListener('click', displayThree);
 function displayThree(){
     SCREEN.textContent += '3';
+    backspaceOn = true;
 }
 const FOUR = document.querySelector('.btn.four');
 FOUR.addEventListener('click', displayFour);
 function displayFour(){
     SCREEN.textContent += '4';
+    backspaceOn = true;
 }
 const FIVE = document.querySelector('.btn.five');
 FIVE.addEventListener('click', displayFive);
 function displayFive(){
     SCREEN.textContent += '5';
+    backspaceOn = true;
 }
 const SIX = document.querySelector('.btn.six');
 SIX.addEventListener('click', displaySix);
 function displaySix(){
     SCREEN.textContent += '6';
+    backspaceOn = true;
 }
 const SEVEN = document.querySelector('.btn.seven');
 SEVEN.addEventListener('click', displaySeven);
 function displaySeven(){
     SCREEN.textContent += '7';
+    backspaceOn = true;
 }
 const EIGHT = document.querySelector('.btn.eight');
 EIGHT.addEventListener('click', displayEight);
 function displayEight(){
     SCREEN.textContent += '8';
+    backspaceOn = true;
 }
 const NINE = document.querySelector('.btn.nine');
 NINE.addEventListener('click', displayNine);
 function displayNine(){
     SCREEN.textContent += '9';
+    backspaceOn = true;
 }
 
 
@@ -81,6 +92,7 @@ function clearDisplayReset(){
         subractionOn = false;
         multiplicationOn = false;
         divisionOn = false;
+        backspaceOn = true;
         removeAfterOperateButtonFunctionality();
 
 };
@@ -106,6 +118,8 @@ let result;
 // main calculator functions for each math operation: sets number pairs, displays results, 
 // changes # button functionality depending on whether you want new oepration or to modified prev result
 function operate(){
+    backspaceOn = false;
+
     if(additionOn === true){
         secondNumber = Number(SCREEN.textContent);
         result = add(firstNumber,secondNumber);
@@ -312,6 +326,8 @@ function displayPeriodAfterOperate(){
     removeAfterOperateButtonFunctionality();
 }
 
+
+
 // ******************math operator button FUNCTIONS**************************************
 
 // DIVISION
@@ -436,4 +452,22 @@ function divide(firstNumber, secondNumber) {
         let rounded = (firstNumber/secondNumber).toFixed(4);
         return Number(rounded);
      }
+}
+
+// ******************other FUNCTIONS**************************************
+
+// backspace function
+
+const BACKSPACE = document.querySelector('.btn.backspace');
+BACKSPACE.addEventListener('click', backspace);
+
+let backspaceOn = true;
+function backspace(){
+    if (backspaceOn === true){
+        if (SCREEN.textContent.charAt(SCREEN.textContent.length - 1) === '.'){
+            enablePeriodButton();
+        }
+        let edited = SCREEN.textContent.slice(0, (SCREEN.textContent.length - 1)); 
+        SCREEN.textContent = edited;
+    }
 }
