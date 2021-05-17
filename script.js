@@ -471,3 +471,16 @@ function backspace(){
         SCREEN.textContent = edited;
     }
 }
+
+// negative function
+
+let makeNegativeOn = true;
+function makeNegative(){
+    if(SCREEN.textContent.charAt(0) === '-'){
+        let edited = SCREEN.textContent.slice(1); 
+        SCREEN.textContent = edited;
+    }else{
+        SCREEN.textContent = '-' + SCREEN.textContent;
+    }
+
+}
