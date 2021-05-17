@@ -111,6 +111,7 @@ grid-template-areas:
 }
 .screen{
     width: 100%;
+    height: 42px;
     background-color: rgb(218, 208, 208);
     border: black 2px solid;
     border-radius: 8px;
@@ -120,6 +121,7 @@ grid-template-areas:
     padding-right: 8px;
     text-align: right;
     overflow-x:auto;
+    white-space: nowrap;
     overflow-y: hidden;
 }
 .margin{
@@ -295,25 +297,35 @@ grid-template-areas:
         padding-top: 2px;
     }
     .buttongrid{
-        row-gap: 10px;
-        column-gap: 8px;
+        row-gap: 8px;
+        column-gap: 6px;
         /* padding: none; */
-        padding: 8px;
-        border: none;
+        padding: 6px;
+        /* border: none; */
     }
     .midsection{
-        border-bottom: none;;
+        /* border-bottom: none; */
     }
     .calcContainer{
         /* width: 230px; */
     }
     .btn{
-        /* display: block; */
-        /* text-align: left; */
+        /* -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;  */
+             /* -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+                  box-sizing: content-box;  */
     }
     .btn.backspace{
         /* width: 100%; */
         font-size: 12px;
+        padding-top: 5px;
+        padding-left: 3px;
+    }
+    .btn.negative{
+        /* width: 100%; */
+        font-size: 14px;
         padding-top: 5px;
         padding-left: 3px;
     }
